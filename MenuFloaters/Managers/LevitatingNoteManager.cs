@@ -96,22 +96,22 @@ internal class LevitatingNoteManager : IInitializable, IDisposable
                 noteObject.Find("NoteArrowGlow").gameObject.SetActive(true);
             }
 
-            if (Config.ForceNoteColor)
+            if (noteObject.TryGetComponent(out Renderer renderer))
             {
-                Color color = Config.NoteColorRandom ? Color.HSVToRGB(Random.value, 1f, 1f) : Config.NoteColor;
-                
-                if (noteObject.TryGetComponent(out Renderer renderer))
+                if (Config.ForceNoteColor)
                 {
+                    Color color = Config.NoteColorRandom ? Color.HSVToRGB(Random.value, 1f, 1f) : Config.NoteColor;
                     renderer.material.color = color;
-                    if (Config.IsFullSphere)
+
+                    if (noteObject.Find("NoteArrowGlow").TryGetComponent(out SpriteRenderer arrowGlow))
                     {
-                        renderer.material.SetFloat(FogHeightOffsetID, 99999f);
+                        arrowGlow.color = color with { a = 0.5f };
                     }
                 }
-
-                if (noteObject.Find("NoteArrowGlow").TryGetComponent(out SpriteRenderer arrowGlow))
+                
+                if (Config.IsFullSphere)
                 {
-                    arrowGlow.color = color with { a = 0.5f };
+                    renderer.material.SetFloat(FogHeightOffsetID, 99999f);
                 }
             }
 
