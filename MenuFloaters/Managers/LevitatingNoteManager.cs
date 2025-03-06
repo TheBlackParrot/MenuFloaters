@@ -146,5 +146,6 @@ internal class LevitatingNoteManager : IInitializable, IDisposable
     public void UpdateDefaultPiles()
     {
         _menuEnvironment?.Find("Notes").gameObject.SetActive(!Config.AlsoDisableDefaultPiles);
+        _menuEnvironment?.Find("PileOfNotes").gameObject.SetActive(!Config.AlsoDisableDefaultPiles);
     }
 }
