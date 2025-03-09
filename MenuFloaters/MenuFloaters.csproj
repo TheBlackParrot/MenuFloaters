@@ -10,6 +10,17 @@
         <EnableFrameworkPathOverride>true</EnableFrameworkPathOverride>
         <FrameworkPathOverride>$(BeatSaberDir)\Beat Saber_Data\Managed</FrameworkPathOverride>
         <MarkPackageReferencesAsExternallyResolved>false</MarkPackageReferencesAsExternallyResolved>
+        <Configurations>Release-1.29.1;Debug-1.37.1;Debug-1.29.1;Release-1.37.1;Debug-1.40.3;Release-1.40.3</Configurations>
+        <Platforms>AnyCPU</Platforms>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release-1.29.1' ">
+      <Optimize Condition=" '$(Optimize)' == '' ">true</Optimize>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug-1.29.1' ">
+      <DebugSymbols Condition=" '$(DebugSymbols)' == '' ">true</DebugSymbols>
+      <Optimize Condition=" '$(Optimize)' == '' ">false</Optimize>
     </PropertyGroup>
 
     <ItemGroup>
@@ -17,6 +28,7 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+        <PackageReference Include="LunaBSMod.Tasks" Version="1.1.0"/>
     </ItemGroup>
 
     <ItemGroup>
@@ -24,7 +36,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Reference Include="BeatSaber.ViewSystem">
+        <Reference Include="BeatSaber.ViewSystem" Condition="$(Configuration) == 'Debug-1.40.3' Or $(Configuration) == 'Release-1.40.3'">
             <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\BeatSaber.ViewSystem.dll</HintPath>
             <Private>false</Private>
         </Reference>

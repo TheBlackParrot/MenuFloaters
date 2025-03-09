@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+    <PropertyGroup Condition="$(Configuration) == 'Release-1.29.1' Or $(Configuration) == 'Debug-1.29.1'">
+        <GameVersion>1.29.1</GameVersion>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration) == 'Release-1.37.1' Or $(Configuration) == 'Debug-1.37.1'">
+        <GameVersion>1.37.1</GameVersion>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration) == 'Release-1.40.3' Or $(Configuration) == 'Debug-1.40.3'">
+        <GameVersion>1.40.3</GameVersion>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <BeatSaberDir>D:/bs-manager/BSManager/BSInstances/$(GameVersion)</BeatSaberDir>
+    </PropertyGroup>
+</Project>

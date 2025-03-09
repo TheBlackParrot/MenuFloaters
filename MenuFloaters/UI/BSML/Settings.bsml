@@ -1,8 +1,13 @@
 ﻿<vertical xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns="$LOCAL_SCHEMA$"
-          xsi:noNamespaceSchemaLocation='https://monkeymanboy.github.io/BSML-Docs/BSMLSchema.xsd'>
-    <primary-button on-click="SpawnNotes" text="Update"/>
+          xsi:noNamespaceSchemaLocation='https://monkeymanboy.github.io/BSML-Docs/BSMLSchema.xsd'
+          vertical-fit="PreferredSize" pref-height="70"
+          child-align="UpperCenter" child-control-height="false">
+    <vertical vertical-fit="PreferredSize" pref-height="0">
+        <primary-button on-click="SpawnNotes" text="Update"/>
+    </vertical>
     
-    <vertical vertical-fit="PreferredSize" pref-height="60" horizontal-fit="PreferredSize" pref-width="100">
+    <vertical vertical-fit="PreferredSize" pref-height="~BsmlSettingsHeight"
+              horizontal-fit="PreferredSize" pref-width="~BsmlSettingsWidth">
         <scroll-view>
             <toggle-setting text="Mod Enabled" value="Enabled" apply-on-change="true"/>
     

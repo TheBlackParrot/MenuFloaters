@@ -7,8 +7,7 @@
     <PluginId>MenuFloaters</PluginId>
     <PluginName>MenuFloaters</PluginName>
     <Authors>TheBlackParrot</Authors>
-    <Version>0.0.2</Version>
-    <GameVersion>1.40.3</GameVersion>
+    <Version>0.0.3</Version>
     <Description>Changes the amount of LevitatingNote that are present in the menu environment</Description>
     <!--<PluginIcon></PluginIcon>-->
     <!--<ProjectSource></ProjectSource>-->

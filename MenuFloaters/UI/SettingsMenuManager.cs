@@ -20,6 +20,14 @@ internal class SettingsMenuManager : IInitializable, IDisposable, INotifyPropert
     
     private const string MenuName = nameof(MenuFloaters);
     private const string ResourcePath = nameof(MenuFloaters) + ".UI.BSML.Settings.bsml";
+    
+#if !V1_29_1
+    private const int BsmlSettingsHeight = 60;
+    private const int BsmlSettingsWidth = 100;
+#else
+    private const int BsmlSettingsHeight = 55;
+    private const int BsmlSettingsWidth = 110;
+#endif
 
     [UsedImplicitly] public string VectorXFormatter(float x) => $"X: {x}";
     [UsedImplicitly] public string VectorYFormatter(float y) => $"Y: {y}";
@@ -42,12 +50,20 @@ internal class SettingsMenuManager : IInitializable, IDisposable, INotifyPropert
 
     public void Initialize()
     {
+#if V1_40_3
         BeatSaberMarkupLanguage.Settings.BSMLSettings.Instance?.AddSettingsMenu(MenuName, ResourcePath, this);
+#else
+        BeatSaberMarkupLanguage.Settings.BSMLSettings.instance?.AddSettingsMenu(MenuName, ResourcePath, this);
+#endif
     }
 
     public void Dispose()
     {
+#if V1_40_3
         BeatSaberMarkupLanguage.Settings.BSMLSettings.Instance?.RemoveSettingsMenu(this);
+#else
+        BeatSaberMarkupLanguage.Settings.BSMLSettings.instance?.RemoveSettingsMenu(this);
+#endif
     }
 
     [UIAction("#post-parse")]
@@ -56,7 +72,11 @@ internal class SettingsMenuManager : IInitializable, IDisposable, INotifyPropert
     {
         if (_spawnAreaSliderX != null)
         {
+#if V1_40_3
             CurvedTextMeshPro tmpComponent = _spawnAreaSliderX.Slider.GetComponentInChildren<CurvedTextMeshPro>();
+#else
+            CurvedTextMeshPro tmpComponent = _spawnAreaSliderX.slider.GetComponentInChildren<CurvedTextMeshPro>();
+#endif
             if (tmpComponent != null)
             {
                 tmpComponent.color = new Color(1f, 0.67f, 0.67f);
@@ -65,7 +85,11 @@ internal class SettingsMenuManager : IInitializable, IDisposable, INotifyPropert
         
         if (_spawnAreaSliderY != null)
         {
+#if V1_40_3
             CurvedTextMeshPro tmpComponent = _spawnAreaSliderY.Slider.GetComponentInChildren<CurvedTextMeshPro>();
+#else
+            CurvedTextMeshPro tmpComponent = _spawnAreaSliderY.slider.GetComponentInChildren<CurvedTextMeshPro>();
+#endif
             if (tmpComponent != null)
             {
                 tmpComponent.color = new Color(0.67f, 1f, 0.67f);
@@ -74,7 +98,11 @@ internal class SettingsMenuManager : IInitializable, IDisposable, INotifyPropert
         
         if (_spawnAreaSliderZ != null)
         {
+#if V1_40_3
             CurvedTextMeshPro tmpComponent = _spawnAreaSliderZ.Slider.GetComponentInChildren<CurvedTextMeshPro>();
+#else
+            CurvedTextMeshPro tmpComponent = _spawnAreaSliderZ.slider.GetComponentInChildren<CurvedTextMeshPro>();
+#endif
             if (tmpComponent != null)
             {
                 tmpComponent.color = new Color(0.67f, 0.67f, 1f);
