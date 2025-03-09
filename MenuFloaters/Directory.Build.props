@@ -1,25 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!-- This file contains project properties used by the build. -->
 <Project>
+  <!-- Game version-dependent stuff -->
+  <PropertyGroup Condition="$(Configuration) == 'Release-1.29.1' Or $(Configuration) == 'Debug-1.29.1'">
+    <GameVersion>1.29.1</GameVersion>
+
+    <BSIPAVersion>4.2.2</BSIPAVersion>
+    <BSMLVersion>1.6.10</BSMLVersion>
+    <SiraUtilVersion>3.1.2</SiraUtilVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="$(Configuration) == 'Release-1.37.1' Or $(Configuration) == 'Debug-1.37.1'">
+    <GameVersion>1.37.1</GameVersion>
+
+    <BSIPAVersion>4.3.3</BSIPAVersion>
+    <BSMLVersion>1.11.4</BSMLVersion>
+    <SiraUtilVersion>3.1.8</SiraUtilVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="$(Configuration) == 'Release-1.40.3' Or $(Configuration) == 'Debug-1.40.3'">
+    <GameVersion>1.40.3</GameVersion>
+
+    <BSIPAVersion>4.3.5</BSIPAVersion>
+    <BSMLVersion>1.12.3</BSMLVersion>
+    <SiraUtilVersion>3.1.12</SiraUtilVersion>
+  </PropertyGroup>
 
   <!-- Plugin Metadata -->
   <PropertyGroup>
     <PluginId>MenuFloaters</PluginId>
     <PluginName>MenuFloaters</PluginName>
     <Authors>TheBlackParrot</Authors>
-    <Version>0.0.3</Version>
+    <Version>0.0.4+$(GameVersion)</Version>
     <Description>Changes the amount of LevitatingNote that are present in the menu environment</Description>
     <!--<PluginIcon></PluginIcon>-->
-    <!--<ProjectSource></ProjectSource>-->
-    <!--<ProjectHome></ProjectHome>-->
-    <!--<DonateUrl></DonateUrl>-->
+    <ProjectSource>https://github.com/TheBlackParrot/MenuFloaters</ProjectSource>
+    <ProjectHome>https://github.com/TheBlackParrot/MenuFloaters</ProjectHome>
+    <DonateUrl>https://ko-fi.com/septilateral</DonateUrl>
   </PropertyGroup>
 
   <!-- Plugin Dependencies -->
   <ItemGroup>
-    <DependsOn Include="BSIPA" Version="^4.2.2"/>
-    <DependsOn Include="BeatSaberMarkupLanguage" Version="^1.6.10"/>
-    <DependsOn Include="SiraUtil" Version="^3.1.2"/>
+    <DependsOn Include="BSIPA" Version="^$(BSIPAVersion)"/>
+    <DependsOn Include="BeatSaberMarkupLanguage" Version="^$(BSMLVersion)"/>
+    <DependsOn Include="SiraUtil" Version="^$(SiraUtilVersion)"/>
   </ItemGroup>
   
   <PropertyGroup>
@@ -30,5 +52,4 @@
   <PropertyGroup>
     <DisableZipRelease>false</DisableZipRelease>
   </PropertyGroup>
-  
 </Project>
