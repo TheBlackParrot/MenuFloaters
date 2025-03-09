@@ -27,4 +27,8 @@
     <GenerateManifest>true</GenerateManifest>
   </PropertyGroup>
   
+  <PropertyGroup>
+    <DisableZipRelease>false</DisableZipRelease>
+  </PropertyGroup>
+  
 </Project>
