@@ -9,6 +9,7 @@ using IPAConfig = IPA.Config.Config;
 namespace MenuFloaters;
 
 [Plugin(RuntimeOptions.DynamicInit)]
+[NoEnableDisable]
 internal class Plugin
 {
     internal static IPALogger Log { get; private set; } = null!;
