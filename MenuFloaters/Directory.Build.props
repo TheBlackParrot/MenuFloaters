@@ -27,8 +27,4 @@
     <GenerateManifest>true</GenerateManifest>
   </PropertyGroup>
   
-  <PropertyGroup Condition="'$(Configuration)' != 'Release'">
-    <DisableZipRelease>true</DisableZipRelease>
-  </PropertyGroup>
-  
 </Project>
